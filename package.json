@@ -1,0 +1,13 @@
+{
+  "name": "R4Exe",
+  "version": "1.0.0",
+  "description": "-",
+  "main": "index.js",
+  "type": "commonjs",
+  "author": "RaldzzXyz",
+  "license": "MIT",
+  "dependencies": {
+    "@whiskeysockets/baileys": "github:raldzfvck/baileys",
+    "crypto": "^1.0.1"
+  }
+}
