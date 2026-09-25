@@ -389,6 +389,15 @@
     display:flex;align-items:center;gap:5px;
     backdrop-filter:blur(4px);
   }
+  .badge.hot{
+    background:linear-gradient(135deg,#ff3d3d,#ff8a00);
+    box-shadow:0 8px 18px -8px rgba(255,61,61,.5);
+  }
+  .badge.top{
+    background:linear-gradient(135deg,#ffd23f,#ff8a00);
+    box-shadow:0 8px 18px -8px rgba(255,210,63,.6);
+    color:#1a0a0a;
+  }
 
   .title{
     font-size:17px;font-weight:800;line-height:1.3;letter-spacing:-.25px;
@@ -712,16 +721,16 @@
 
     <div class="scroller" id="scroller">
 
-      <!-- CARD 1 -->
+      <!-- ================= CARD 1 - SYAM (TOP) ================= -->
       <article class="card">
         <div class="thumb">
-          <span class="badge">
+          <span class="badge top">
             <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 2l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 13.6 7 17.2l1.9-5.8L4 7.8h6.1z"/></svg>
-            Best Seller
+            TOP
           </span>
-          <img src="https://files.catbox.moe/9x0hvy.jpg" alt="Logo Produk FalReal01" loading="lazy">
+          <img src="https://files.catbox.moe/9x0hvy.jpg" alt="APK BUGXRAT SYAM" loading="lazy">
         </div>
-        <h2 class="title">APK BUGxRAT SYAM</h2>
+        <h2 class="title">APK BUGXRAT SYAM</h2>
         <p class="desc">Tools bug WhatsApp sangat gacor, sender global stabil dan memiliki tools RAT untuk menyadap hp target melalui phising, serta banyak tools lainnya yang menarik. Silahkan cek sslengkapnya di video preview di bawah ini!.</p>
         <div class="actions">
           <button class="btn ghost" onclick="openVideo()">
@@ -735,38 +744,81 @@
         </div>
       </article>
 
-      <!-- CARD 2 -->
+      <!-- ================= CARD 2 - PPL (BEST SELLER) ================= -->
       <article class="card">
-        <div class="thumb ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <div class="thumb">
+          <span class="badge">
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M12 2l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 13.6 7 17.2l1.9-5.8L4 7.8h6.1z"/></svg>
+            Best Seller
+          </span>
+          <img src="https://files.catbox.moe/is2ufp.jpg" alt="APK BUG PPL X RAT" loading="lazy">
         </div>
-        <h2 class="title">Produk Belum Diisi</h2>
-        <p class="desc">Slot produk ini masih kosong. Nantikan segera.</p>
+        <h2 class="title">APK BUG PPL X RAT</h2>
+        <p class="desc">fitur bug yang gacor dan menarik, dan memiliki fitur rat / sadap hp target dan memiliki tools lainnya yang menarik, fitur lengkap langsung cek preview apk.</p>
         <div class="actions">
-          <button class="btn ghost" disabled>
+          <button class="btn ghost" onclick="openVideo2()">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             Preview
           </button>
-          <button class="btn primary" disabled>
+          <button class="btn primary" onclick="openPrice2()">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
             Buy
           </button>
         </div>
       </article>
 
-      <!-- CARD 3 -->
+      <!-- ================= CARD 3 - LENNOX SPY (HOT) ================= -->
       <article class="card">
-        <div class="thumb ph">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <div class="thumb">
+          <span class="badge hot">HOT</span>
+          <img src="https://files.catbox.moe/19tljv.jpg" alt="APK BUG LENNOX SPY" loading="lazy">
         </div>
-        <h2 class="title">Produk Belum Diisi</h2>
-        <p class="desc">Slot produk ini masih kosong. Nantikan segera.</p>
+        <h2 class="title">APK BUG LENNOX SPY</h2>
+        <p class="desc">fitur bug yang gacor dan menarik, dan memiliki fitur rat / sadap hp target dan memiliki tools lainnya yang menarik, fitur lengkap langsung cek preview apk.</p>
         <div class="actions">
-          <button class="btn ghost" disabled>
+          <button class="btn ghost" onclick="openVideo4()">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             Preview
           </button>
-          <button class="btn primary" disabled>
+          <button class="btn primary" onclick="openPrice4()">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+            Buy
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= CARD 4 - DARKVERSE ================= -->
+      <article class="card">
+        <div class="thumb">
+          <img src="https://files.catbox.moe/om8yog.jpg" alt="APK BUG DARKVERSE" loading="lazy">
+        </div>
+        <h2 class="title">APK BUG DARKVERSE</h2>
+        <p class="desc">memiliki bug WhatsApp yang sangat gacor, dengan sender global dan memiliki fitur rat yang bisa diakses melalui phising, serta memiliki sistem yang stabil. Fitur lainnya langsung saja cek preview apk.</p>
+        <div class="actions">
+          <button class="btn ghost" onclick="openVideo3()">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Preview
+          </button>
+          <button class="btn primary" onclick="openPrice3()">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+            Buy
+          </button>
+        </div>
+      </article>
+
+      <!-- ================= CARD 5 - X-FAR ================= -->
+      <article class="card">
+        <div class="thumb">
+        <img src="https://files.catbox.moe/ed8tb6.jpg"" alt="APK BUG X-FAR" loading="lazy">
+        </div>
+        <h2 class="title">APK BUG X-FAR</h2>
+        <p class="desc">Tools bug WhatsApp sangat gacor dan memiliki tools RAT untuk menyadap hp target melalui phising, serta banyak tools lainnya yang menarik. Silahkan cek selengkapnya di video preview di bawah ini!</p>
+        <div class="actions">
+          <button class="btn ghost" onclick="openVideo5()">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Preview
+          </button>
+          <button class="btn primary" onclick="openPrice5()">
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
             Buy
           </button>
@@ -824,7 +876,7 @@
 <div class="overlay" id="ovVideo">
   <div class="modal wide">
     <div class="modal-head">
-      <h3>Preview — APK BUGxRAT SYAM</h3>
+      <h3 id="vidTitle">Preview — APK BUGXRAT SYAM</h3>
       <button class="x" onclick="closeVideo()" aria-label="Tutup">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
@@ -844,25 +896,7 @@
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
-    <div class="modal-body">
-      <p class="pl-cat">Member</p>
-
-      <div class="pl-row">
-        <div class="pl-info">
-          <span class="pl-name">1 bulan</span>
-          <span class="pl-price">Rp20.000</span>
-        </div>
-        <button class="btn primary sm" onclick="openQRIS('bulan')">Bayar</button>
-      </div>
-
-      <div class="pl-row">
-        <div class="pl-info">
-          <span class="pl-name">Permanen</span>
-          <span class="pl-price">Rp40.000</span>
-        </div>
-        <button class="btn primary sm" onclick="openQRIS('permanen')">Bayar</button>
-      </div>
-    </div>
+    <div class="modal-body" id="priceBody"></div>
   </div>
 </div>
 
@@ -880,9 +914,10 @@
 </div>
 
 <script>
-/* ================= DATA ================= */
+/* ================= DATA PRODUK ================= */
 const VIDEO_URL = "https://cdn.videotourl.net/videos/a8302c19-df09-4818-b8a7-9d6428b47163.mp4";
 
+/* Produk 1 */
 const PRODUK = {
   bulan: {
     nominal : "Rp20.000",
@@ -899,6 +934,168 @@ const PRODUK = {
     masa    : "Permanen",
     harga   : "Rp40.000",
     chat    : "Min, saya telah menyelesaikan pembayaran Apk Syam permanen"
+  }
+};
+
+/* Produk 2 */
+const PRODUK2 = {
+  barang : "APK BUG PPL X RAT",
+  video  : "https://files.catbox.moe/cnuqvb.MOV",
+  paket : {
+    b1: {
+      kategori: "Member",
+      nama    : "1 bulan",
+      nominal : "Rp35.000",
+      qris    : "https://files.catbox.moe/gjy6km.jpg",
+      role    : "Member",
+      masa    : "30 hari",
+      harga   : "Rp35.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug PPL X Rat 1 bulan"
+    },
+    perm: {
+      kategori: "Member",
+      nama    : "Permanen",
+      nominal : "Rp50.000\n(minimal dp 50% / Rp25.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Member",
+      masa    : "Permanen",
+      harga   : "Rp50.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug PPL X Rat permanen"
+    }
+  }
+};
+
+/* Produk 3 */
+const PRODUK3 = {
+  barang : "APK BUG DARKVERSE",
+  video  : "https://files.catbox.moe/i1audy.MP4",
+  paket : {
+    member: {
+      kategori: "Member",
+      nama    : "Permanen",
+      nominal : "Rp50.000\n(minimal dp 50% / Rp25.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Member",
+      masa    : "Permanen",
+      harga   : "Rp50.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug Darkverse Member permanen"
+    },
+    reseller: {
+      kategori: "Reseller",
+      nama    : "Permanen",
+      nominal : "Rp80.000\n(minimal dp 50% / Rp40.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Reseller",
+      masa    : "Permanen",
+      harga   : "Rp80.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug Darkverse Reseller permanen"
+    },
+    partner: {
+      kategori: "Partner",
+      nama    : "Permanen",
+      nominal : "Rp150.000\n(minimal dp 50% / Rp75.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Partner",
+      masa    : "Permanen",
+      harga   : "Rp150.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug Darkverse Partner permanen"
+    }
+  }
+};
+
+/* Produk 4 */
+const PRODUK4 = {
+  barang : "APK BUG LENNOX SPY",
+  video  : "https://files.catbox.moe/4mxu4u.MP4",
+  paket : {
+    member: {
+      kategori: "Member",
+      nama    : "Permanen",
+      nominal : "Rp50.000\n(minimal dp 50% / Rp25.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Member",
+      masa    : "Permanen",
+      harga   : "Rp50.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug Lennox Spy permanen"
+    }
+  }
+};
+
+/* Produk 5 */
+const PRODUK5 = {
+  barang : "APK BUG X-FAR",
+  video  : "https://files.catbox.moe/sn5zin.mp4",
+  paket : {
+    m1: {
+      kategori: "Member",
+      nama    : "1 bulan",
+      nominal : "Rp20.000",
+      qris    : "https://files.catbox.moe/0u5t0l.jpg",
+      role    : "Member",
+      masa    : "30 hari",
+      harga   : "Rp20.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far 1 bulan"
+    },
+    mperm: {
+      kategori: "Member",
+      nama    : "Permanen",
+      nominal : "Rp30.000\n(minimal dp 50% / Rp15.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Member",
+      masa    : "Permanen",
+      harga   : "Rp30.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far Member permanen"
+    },
+    vip: {
+      kategori: "VIP",
+      nama    : "Permanen",
+      nominal : "Rp45.000\n(minimal dp 50% / Rp20.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "VIP",
+      masa    : "Permanen",
+      harga   : "Rp45.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far VIP permanen"
+    },
+    reseller: {
+      kategori: "Reseller",
+      nama    : "Permanen",
+      nominal : "Rp60.000\n(minimal dp 50% / Rp30.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Reseller",
+      masa    : "Permanen",
+      harga   : "Rp60.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far Reseller permanen"
+    },
+    admin: {
+      kategori: "Admin",
+      nama    : "Permanen",
+      nominal : "Rp70.000\n(minimal dp 50% / Rp35.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Admin",
+      masa    : "Permanen",
+      harga   : "Rp70.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far Admin permanen"
+    },
+    partner: {
+      kategori: "Partner",
+      nama    : "Permanen",
+      nominal : "Rp100.000\n(minimal dp 50% / Rp50.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Partner",
+      masa    : "Permanen",
+      harga   : "Rp100.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far Partner permanen"
+    },
+    owner: {
+      kategori: "Owner",
+      nama    : "Permanen",
+      nominal : "Rp150.000\n(minimal dp 50% / Rp75.000)",
+      qris    : "https://files.catbox.moe/ogs1rl.jpg",
+      role    : "Owner",
+      masa    : "Permanen",
+      harga   : "Rp150.000",
+      chat    : "Min, saya telah menyelesaikan pembayaran Apk Bug X-Far Owner permanen"
+    }
   }
 };
 
@@ -927,7 +1124,6 @@ const themePop  = document.getElementById("themePop");
 const themeBtn  = document.getElementById("themeBtn");
 const curSw     = document.getElementById("curSw");
 
-/* render tombol tema */
 THEMES.forEach(t => {
   const b = document.createElement("button");
   b.className = "theme-item";
@@ -1021,6 +1217,7 @@ function hide(id){
 /* ================= VIDEO ================= */
 function openVideo(){
   const v = document.getElementById("vid");
+  document.getElementById("vidTitle").textContent = "Preview — APK BUGXRAT SYAM";
   v.src = VIDEO_URL;
   show("ovVideo");
   v.play().catch(()=>{});
@@ -1031,22 +1228,142 @@ function closeVideo(){
   hide("ovVideo");
 }
 
-/* ================= PRICE ================= */
-function openPrice(){ show("ovPrice"); }
+function openVideoGeneric(url, title){
+  const v = document.getElementById("vid");
+  document.getElementById("vidTitle").textContent = "Preview — " + title;
+  v.src = url;
+  show("ovVideo");
+  v.play().catch(()=>{});
+}
+function openVideo2(){ openVideoGeneric(PRODUK2.video, "APK BUG PPL X RAT"); }
+function openVideo3(){ openVideoGeneric(PRODUK3.video, "APK BUG DARKVERSE"); }
+function openVideo4(){ openVideoGeneric(PRODUK4.video, "APK BUG LENNOX SPY"); }
+function openVideo5(){ openVideoGeneric(PRODUK5.video, "APK BUG X-FAR"); }
+
+/* ================= PRICE LIST ================= */
+function openPrice(){
+  document.getElementById("priceBody").innerHTML = `
+    <p class="pl-cat">Member</p>
+    <div class="pl-row">
+      <div class="pl-info">
+        <span class="pl-name">1 bulan</span>
+        <span class="pl-price">Rp20.000</span>
+      </div>
+      <button class="btn primary sm" onclick="openQRIS('bulan')">Bayar</button>
+    </div>
+    <div class="pl-row">
+      <div class="pl-info">
+        <span class="pl-name">Permanen</span>
+        <span class="pl-price">Rp40.000</span>
+      </div>
+      <button class="btn primary sm" onclick="openQRIS('permanen')">Bayar</button>
+    </div>
+  `;
+  show("ovPrice");
+}
 function closePrice(){ hide("ovPrice"); }
 
+function openPrice2(){
+  const p = PRODUK2.paket;
+  document.getElementById("priceBody").innerHTML = `
+    <p class="pl-cat">Member</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.b1.nama}</span><span class="pl-price">${p.b1.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS2('b1')">Bayar</button>
+    </div>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.perm.nama}</span><span class="pl-price">${p.perm.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS2('perm')">Bayar</button>
+    </div>
+  `;
+  show("ovPrice");
+}
+
+function openPrice3(){
+  const p = PRODUK3.paket;
+  document.getElementById("priceBody").innerHTML = `
+    <p class="pl-cat">Member</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.member.nama}</span><span class="pl-price">${p.member.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS3('member')">Bayar</button>
+    </div>
+    <p class="pl-cat">Reseller</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.reseller.nama}</span><span class="pl-price">${p.reseller.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS3('reseller')">Bayar</button>
+    </div>
+    <p class="pl-cat">Partner</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.partner.nama}</span><span class="pl-price">${p.partner.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS3('partner')">Bayar</button>
+    </div>
+  `;
+  show("ovPrice");
+}
+
+function openPrice4(){
+  const p = PRODUK4.paket;
+  document.getElementById("priceBody").innerHTML = `
+    <p class="pl-cat">Member</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.member.nama}</span><span class="pl-price">${p.member.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS4('member')">Bayar</button>
+    </div>
+  `;
+  show("ovPrice");
+}
+
+function openPrice5(){
+  const p = PRODUK5.paket;
+  document.getElementById("priceBody").innerHTML = `
+    <p class="pl-cat">Member</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.m1.nama}</span><span class="pl-price">${p.m1.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('m1')">Bayar</button>
+    </div>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.mperm.nama}</span><span class="pl-price">${p.mperm.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('mperm')">Bayar</button>
+    </div>
+    <p class="pl-cat">VIP</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.vip.nama}</span><span class="pl-price">${p.vip.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('vip')">Bayar</button>
+    </div>
+    <p class="pl-cat">Reseller</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.reseller.nama}</span><span class="pl-price">${p.reseller.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('reseller')">Bayar</button>
+    </div>
+    <p class="pl-cat">Admin</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.admin.nama}</span><span class="pl-price">${p.admin.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('admin')">Bayar</button>
+    </div>
+    <p class="pl-cat">Partner</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.partner.nama}</span><span class="pl-price">${p.partner.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('partner')">Bayar</button>
+    </div>
+    <p class="pl-cat">Owner</p>
+    <div class="pl-row">
+      <div class="pl-info"><span class="pl-name">${p.owner.nama}</span><span class="pl-price">${p.owner.harga}</span></div>
+      <button class="btn primary sm" onclick="openQRIS5('owner')">Bayar</button>
+    </div>
+  `;
+  show("ovPrice");
+}
+
 /* ================= QRIS ================= */
-function openQRIS(tipe){
-  const p  = PRODUK[tipe];
+function buildQRISHTML(p){
   const tg = TG_BASE + encodeURIComponent(p.chat);
   const wa = WA_BASE + encodeURIComponent(p.chat);
-
-  document.getElementById("qrisBody").innerHTML = `
+  return `
     <div class="nominal">${p.nominal}</div>
     <div class="qr-wrap"><img src="${p.qris}" alt="QRIS ${p.harga}" loading="lazy"></div>
     <div class="nota">
       <div class="nota-title">${IC_RECEIPT} Detail Pesanan</div>
-      <div class="nota-row"><span>Barang</span><b>Apk Syam Bug x RAT</b></div>
+      <div class="nota-row"><span>Barang</span><b>${p.barang}</b></div>
       <div class="nota-row"><span>Role</span><b>${p.role}</b></div>
       <div class="nota-row"><span>Masa aktif</span><b>${p.masa}</b></div>
       <div class="nota-row"><span>Harga</span><b>${p.harga}</b></div>
@@ -1059,9 +1376,44 @@ function openQRIS(tipe){
       <a class="btn wa" href="${wa}" target="_blank" rel="noopener">${IC_WA} WhatsApp</a>
     </div>
   `;
+}
+
+function openQRIS(tipe){
+  const p  = PRODUK[tipe];
+  p.barang = "APK BUGXRAT SYAM";
+  document.getElementById("qrisBody").innerHTML = buildQRISHTML(p);
   closePrice();
   show("ovQris");
 }
+
+function openQRIS2(key){
+  const p = Object.assign({}, PRODUK2.paket[key], { barang: PRODUK2.barang });
+  document.getElementById("qrisBody").innerHTML = buildQRISHTML(p);
+  closePrice();
+  show("ovQris");
+}
+
+function openQRIS3(key){
+  const p = Object.assign({}, PRODUK3.paket[key], { barang: PRODUK3.barang });
+  document.getElementById("qrisBody").innerHTML = buildQRISHTML(p);
+  closePrice();
+  show("ovQris");
+}
+
+function openQRIS4(key){
+  const p = Object.assign({}, PRODUK4.paket[key], { barang: PRODUK4.barang });
+  document.getElementById("qrisBody").innerHTML = buildQRISHTML(p);
+  closePrice();
+  show("ovQris");
+}
+
+function openQRIS5(key){
+  const p = Object.assign({}, PRODUK5.paket[key], { barang: PRODUK5.barang });
+  document.getElementById("qrisBody").innerHTML = buildQRISHTML(p);
+  closePrice();
+  show("ovQris");
+}
+
 function closeQRIS(){ hide("ovQris"); }
 
 /* ================= CAROUSEL ================= */
