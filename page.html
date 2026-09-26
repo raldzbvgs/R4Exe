@@ -9,9 +9,19 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
 
-  /* ============================================================
-     TEMA WARNA
-     ============================================================ */
+  html{
+    scroll-behavior:smooth;
+    overflow-x:hidden;
+    max-width:100vw;
+  }
+  html,body{
+    overflow-x:hidden;
+    max-width:100vw;
+  }
+  .wrap,.head,.scroller,.channels{
+    max-width:100%;
+  }
+
   :root{
     --bg:#0a0c11; --bg2:#11141c; --card:#151925; --border:#232a3a;
     --text:#e9edf7; --muted:#8a94ab; --accent:#7c5cff; --accent2:#00d4ff;
@@ -92,20 +102,18 @@
     --glow:rgba(0,224,92,.4); --orb:.24;
   }
 
-  html{scroll-behavior:smooth}
   body{
     font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",sans-serif;
     background:var(--bg); color:var(--text);
     min-height:100vh; position:relative; overflow-x:hidden;
     transition:background .45s ease,color .45s ease;
     -webkit-font-smoothing:antialiased;
+    width:100%;
+    max-width:100vw;
   }
   svg{display:block;flex:0 0 auto}
   button{font-family:inherit}
 
-  /* ============================================================
-     BACKGROUND FX
-     ============================================================ */
   .bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
   .orb{
     position:absolute;border-radius:50%;
@@ -130,9 +138,6 @@
   }
   [data-theme="light"] .bg-grid{opacity:.5}
 
-  /* ============================================================
-     LOADER
-     ============================================================ */
   .loader{
     position:fixed;inset:0;z-index:9999;
     background:var(--bg);
@@ -185,27 +190,24 @@
   }
   @keyframes load{to{width:100%}}
 
-  /* ============================================================
-     WRAP
-     ============================================================ */
   .wrap{
     position:relative;z-index:1;max-width:1140px;margin:0 auto;
     padding:22px 20px 80px;opacity:0;
+    width:100%;
+    box-sizing:border-box;
   }
   body.ready .wrap{opacity:1}
   body.ready .reveal{animation:dropIn .95s cubic-bezier(.16,1,.3,1) both}
   body.ready .reveal:nth-child(1){animation-delay:.05s}
   body.ready .reveal:nth-child(2){animation-delay:.18s}
   body.ready .reveal:nth-child(3){animation-delay:.31s}
+  body.ready .reveal:nth-child(4){animation-delay:.44s}
   @keyframes dropIn{
     0%{opacity:0;transform:translateY(-56px) scale(.95)}
     60%{opacity:1}
     100%{opacity:1;transform:translateY(0) scale(1)}
   }
 
-  /* ============================================================
-     HEADER (sticky glass)
-     ============================================================ */
   .head{
     position:sticky;top:14px;z-index:60;
     display:flex;flex-wrap:wrap;gap:16px;
@@ -217,6 +219,8 @@
     -webkit-backdrop-filter:blur(18px) saturate(160%);
     box-shadow:0 14px 34px -22px rgba(0,0,0,.85);
     transition:border-color .35s ease,box-shadow .35s ease;
+    width:100%;
+    max-width:100%;
   }
   .head:hover{border-color:color-mix(in srgb,var(--accent) 40%,var(--border))}
 
@@ -244,7 +248,29 @@
   }
   .brand p svg{color:var(--accent)}
 
-  /* ---------- THEME PICKER ---------- */
+  .head-right{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+
+  .tut-btn{
+    display:flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;border:none;cursor:pointer;
+    padding:10px 16px;border-radius:999px;
+    font-size:12.5px;font-weight:700;letter-spacing:.3px;
+    transition:.28s;box-shadow:0 12px 24px -12px var(--accent);
+    position:relative;overflow:hidden;
+  }
+  .tut-btn::after{
+    content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-22deg);transition:left .7s ease;
+  }
+  .tut-btn:hover::after{left:140%}
+  .tut-btn:hover{transform:translateY(-2px);box-shadow:0 18px 30px -12px var(--accent)}
+  .tut-btn:active{transform:scale(.97)}
+
   .theme-wrap{position:relative}
   .theme-btn{
     display:flex;align-items:center;gap:9px;
@@ -273,6 +299,7 @@
     opacity:0;visibility:hidden;transform:translateY(-10px) scale(.96);
     transform-origin:top right;
     transition:opacity .25s ease,transform .3s cubic-bezier(.2,.9,.3,1.3),visibility .25s;
+    max-width:calc(100vw - 28px);
   }
   .theme-pop.show{opacity:1;visibility:visible;transform:none}
   .theme-pop-head{
@@ -301,12 +328,10 @@
   }
   .tname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-  /* ============================================================
-     CAROUSEL
-     ============================================================ */
   .carousel-head{
     display:flex;align-items:center;justify-content:space-between;
     margin-bottom:16px;gap:14px;flex-wrap:wrap;
+    width:100%;
   }
   .carousel-head h2{font-size:15.5px;font-weight:800;letter-spacing:.3px}
   .carousel-head h2 span{color:var(--muted);font-weight:500;font-size:12.5px;display:block;margin-top:4px}
@@ -328,14 +353,15 @@
   .scroller{
     display:flex;gap:20px;overflow-x:auto;overflow-y:visible;
     scroll-snap-type:x mandatory;scroll-behavior:smooth;
-    padding:14px 4px 28px;margin:0 -4px;
+    padding:14px 4px 28px;
+    margin:0;
     scrollbar-width:none;cursor:grab;
+    max-width:100%;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
   }
   .scroller::-webkit-scrollbar{display:none}
 
-  /* ============================================================
-     CARD
-     ============================================================ */
   .card{
     flex:0 0 296px;
     background:var(--card);
@@ -409,9 +435,6 @@
   }
   .actions{display:flex;gap:10px;margin-top:auto;position:relative;z-index:1}
 
-  /* ============================================================
-     BUTTON
-     ============================================================ */
   .btn{
     border:none;cursor:pointer;font-weight:700;font-size:13.5px;
     padding:12px 16px;border-radius:13px;text-decoration:none;
@@ -438,9 +461,6 @@
   .btn:disabled{opacity:.32;cursor:not-allowed;transform:none!important;box-shadow:none!important}
   .btn:disabled::after{display:none}
 
-  /* ============================================================
-     DOTS
-     ============================================================ */
   .dots-wrap{display:flex;justify-content:center;gap:8px;margin-top:2px}
   .pdot{
     width:8px;height:8px;border-radius:99px;background:var(--border);
@@ -453,9 +473,6 @@
     box-shadow:0 0 12px -2px var(--glow);
   }
 
-  /* ============================================================
-     CHANNEL
-     ============================================================ */
   .channels-sec{margin-top:52px}
   .sec-title{
     font-size:11.5px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
@@ -503,14 +520,12 @@
   }
   .chan:hover .arrow{transform:translateX(5px);color:var(--accent)}
 
-  /* ============================================================
-     MODAL
-     ============================================================ */
   .overlay{
     position:fixed;inset:0;z-index:99;padding:18px;
     background:rgba(0,0,0,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
     display:flex;align-items:center;justify-content:center;
     opacity:0;visibility:hidden;transition:opacity .28s,visibility .28s;
+    overflow:hidden;
   }
   .overlay.show{opacity:1;visibility:visible}
   .modal{
@@ -548,7 +563,40 @@
 
   video{width:100%;border-radius:16px;background:#000;display:block;outline:none}
 
-  /* ---------- PRICE LIST ---------- */
+  .tut-steps{
+    background:var(--bg2);
+    border:1px solid var(--border);
+    border-radius:16px;padding:18px;
+    display:flex;flex-direction:column;gap:12px;
+    position:relative;overflow:hidden;
+  }
+  .tut-steps::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent);
+  }
+  .tut-steps h4{
+    font-size:13px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;
+    color:var(--accent);display:flex;align-items:center;gap:8px;
+  }
+  .tut-steps ol{
+    list-style:none;counter-reset:step;display:flex;flex-direction:column;gap:10px;
+    padding:0;
+  }
+  .tut-steps li{
+    counter-increment:step;
+    display:flex;gap:12px;align-items:flex-start;
+    font-size:12.8px;line-height:1.6;color:var(--text);
+  }
+  .tut-steps li::before{
+    content:counter(step);
+    flex:0 0 24px;height:24px;border-radius:8px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;font-size:11.5px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 14px -6px var(--glow);
+    margin-top:1px;
+  }
+
   .pl-cat{
     font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
     color:var(--accent);margin-bottom:-6px;padding-left:2px;
@@ -567,7 +615,6 @@
   .pl-name{font-size:12.5px;color:var(--muted);font-weight:600}
   .pl-price{font-size:16.5px;font-weight:800;letter-spacing:-.3px}
 
-  /* ---------- QRIS ---------- */
   .nominal{
     text-align:center;font-size:22px;font-weight:900;letter-spacing:-.5px;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
@@ -608,9 +655,6 @@
   .btn.tg:hover,.btn.wa:hover{transform:translateY(-2px);filter:brightness(1.08)}
   .or{color:var(--muted);font-size:11.5px;font-weight:800;letter-spacing:1px}
 
-  /* ============================================================
-     FOOTER
-     ============================================================ */
   .footer{
     margin-top:56px;padding-top:24px;
     border-top:1px solid var(--border);
@@ -625,15 +669,21 @@
   }
   .footer .dotsep{display:flex;align-items:center;gap:8px}
 
-  /* ============================================================
-     RESPONSIVE
-     ============================================================ */
   @media (max-width:640px){
     .wrap{padding:16px 14px 70px}
-    .head{flex-direction:column;align-items:stretch;gap:14px;top:10px;padding:14px}
+    .head{
+      flex-direction:column;align-items:stretch;gap:12px;
+      top:10px;padding:14px;
+    }
     .brand{justify-content:flex-start}
-    .theme-wrap{align-self:flex-start}
-    .theme-pop{right:auto;left:0;width:min(300px,88vw);transform-origin:top left}
+    .head-right{
+      width:100%;
+      justify-content:space-between;
+      flex-wrap:nowrap;
+    }
+    .tut-btn{flex:1;justify-content:center;padding:10px 14px;font-size:12px}
+    .theme-wrap{flex:0 0 auto}
+    .theme-pop{right:0;left:auto;width:min(300px,90vw);transform-origin:top right}
     .card{flex:0 0 84vw;border-radius:22px}
     .brand-logo{width:46px;height:46px;flex:0 0 46px;border-radius:13px}
     .nav{width:40px;height:40px}
@@ -650,7 +700,6 @@
 </head>
 <body>
 
-<!-- ================= BACKGROUND FX ================= -->
 <div class="bg-fx" aria-hidden="true">
   <span class="orb o1"></span>
   <span class="orb o2"></span>
@@ -658,7 +707,6 @@
 </div>
 <div class="bg-grid" aria-hidden="true"></div>
 
-<!-- ================= LOADER ================= -->
 <div class="loader" id="loader">
   <div class="loader-logo">
     <img src="https://files.catbox.moe/vxisbp.jpg" alt="Loading FalReal01">
@@ -668,10 +716,8 @@
   <div class="loader-bar"><span></span></div>
 </div>
 
-<!-- ================= MAIN ================= -->
 <div class="wrap">
 
-  <!-- HEADER -->
   <header class="head reveal">
     <div class="brand">
       <div class="brand-logo">
@@ -686,26 +732,32 @@
       </div>
     </div>
 
-    <div class="theme-wrap">
-      <button class="theme-btn" id="themeBtn" aria-haspopup="true" aria-expanded="false">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/>
-          <circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/>
-          <path d="M12 2a10 10 0 1 0 0 20c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.24-.27-.39-.62-.39-1.01 0-.83.67-1.5 1.5-1.5H16a6 6 0 0 0 6-6c0-4.97-4.48-9-10-9z"/>
-        </svg>
-        <span>Tema</span>
-        <span class="sw" id="curSw"></span>
-        <svg class="chev" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <div class="head-right">
+      <button class="tut-btn" onclick="openTutorial()">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg>
+        Tutorial Membeli
       </button>
 
-      <div class="theme-pop" id="themePop" role="menu">
-        <div class="theme-pop-head">Pilih Tema Warna</div>
-        <div class="theme-grid" id="themeGrid"></div>
+      <div class="theme-wrap">
+        <button class="theme-btn" id="themeBtn" aria-haspopup="true" aria-expanded="false">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/>
+            <circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/>
+            <path d="M12 2a10 10 0 1 0 0 20c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.24-.27-.39-.62-.39-1.01 0-.83.67-1.5 1.5-1.5H16a6 6 0 0 0 6-6c0-4.97-4.48-9-10-9z"/>
+          </svg>
+          <span>Tema</span>
+          <span class="sw" id="curSw"></span>
+          <svg class="chev" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+
+        <div class="theme-pop" id="themePop" role="menu">
+          <div class="theme-pop-head">Pilih Tema Warna</div>
+          <div class="theme-grid" id="themeGrid"></div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- CAROUSEL -->
   <section class="reveal">
     <div class="carousel-head">
       <h2>Produk Kami <span>Geser untuk melihat lainnya</span></h2>
@@ -721,7 +773,6 @@
 
     <div class="scroller" id="scroller">
 
-      <!-- ================= CARD 1 - SYAM (TOP) ================= -->
       <article class="card">
         <div class="thumb">
           <span class="badge top">
@@ -744,7 +795,6 @@
         </div>
       </article>
 
-      <!-- ================= CARD 2 - PPL (BEST SELLER) ================= -->
       <article class="card">
         <div class="thumb">
           <span class="badge">
@@ -767,7 +817,6 @@
         </div>
       </article>
 
-      <!-- ================= CARD 3 - LENNOX SPY (HOT) ================= -->
       <article class="card">
         <div class="thumb">
           <span class="badge hot">HOT</span>
@@ -787,7 +836,6 @@
         </div>
       </article>
 
-      <!-- ================= CARD 4 - DARKVERSE ================= -->
       <article class="card">
         <div class="thumb">
           <img src="https://files.catbox.moe/om8yog.jpg" alt="APK BUG DARKVERSE" loading="lazy">
@@ -806,10 +854,9 @@
         </div>
       </article>
 
-      <!-- ================= CARD 5 - X-FAR ================= -->
       <article class="card">
         <div class="thumb">
-        <img src="https://files.catbox.moe/ed8tb6.jpg"" alt="APK BUG X-FAR" loading="lazy">
+          <img src="https://files.catbox.moe/ed8tb6.jpg" alt="APK BUG X-FAR" loading="lazy">
         </div>
         <h2 class="title">APK BUG X-FAR</h2>
         <p class="desc">Tools bug WhatsApp sangat gacor dan memiliki tools RAT untuk menyadap hp target melalui phising, serta banyak tools lainnya yang menarik. Silahkan cek selengkapnya di video preview di bawah ini!</p>
@@ -830,7 +877,6 @@
     <div class="dots-wrap" id="dots"></div>
   </section>
 
-  <!-- CHANNEL -->
   <section class="channels-sec reveal">
     <p class="sec-title">Link Channel</p>
     <div class="channels">
@@ -861,7 +907,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer reveal">
     <div class="dotsep">
       <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6z"/></svg>
@@ -872,7 +917,34 @@
 
 </div>
 
-<!-- ================= MODAL VIDEO ================= -->
+<div class="overlay" id="ovTutorial">
+  <div class="modal wide">
+    <div class="modal-head">
+      <h3>Tutorial Membeli Produk</h3>
+      <button class="x" onclick="closeTutorial()" aria-label="Tutup">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <video id="tutVid" controls playsinline preload="none"></video>
+      <div class="tut-steps">
+        <h4>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Tutorial membeli produk
+        </h4>
+        <ol>
+          <li>Pilih produk yang diminati</li>
+          <li>Klik buy</li>
+          <li>Pilih plan/role serta durasi yang kamu inginkan</li>
+          <li>Screenshoot qris dan lakukan pembayaran dengan sesuai keterangan/nota yang ada</li>
+          <li>Setelah pembayaran berhasil; screenshoot bukti transfer dan klik chat kontak admin</li>
+          <li>Kirim bukti transfer ke admin dan admin akan proses pembelian mu!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="overlay" id="ovVideo">
   <div class="modal wide">
     <div class="modal-head">
@@ -887,7 +959,6 @@
   </div>
 </div>
 
-<!-- ================= MODAL PRICE LIST ================= -->
 <div class="overlay" id="ovPrice">
   <div class="modal">
     <div class="modal-head">
@@ -900,7 +971,6 @@
   </div>
 </div>
 
-<!-- ================= MODAL QRIS ================= -->
 <div class="overlay" id="ovQris">
   <div class="modal">
     <div class="modal-head">
@@ -914,10 +984,9 @@
 </div>
 
 <script>
-/* ================= DATA PRODUK ================= */
 const VIDEO_URL = "https://cdn.videotourl.net/videos/a8302c19-df09-4818-b8a7-9d6428b47163.mp4";
+const TUTORIAL_URL = "https://files.catbox.moe/6otezq.MP4";
 
-/* Produk 1 */
 const PRODUK = {
   bulan: {
     nominal : "Rp20.000",
@@ -937,7 +1006,6 @@ const PRODUK = {
   }
 };
 
-/* Produk 2 */
 const PRODUK2 = {
   barang : "APK BUG PPL X RAT",
   video  : "https://files.catbox.moe/cnuqvb.MOV",
@@ -965,7 +1033,6 @@ const PRODUK2 = {
   }
 };
 
-/* Produk 3 */
 const PRODUK3 = {
   barang : "APK BUG DARKVERSE",
   video  : "https://files.catbox.moe/i1audy.MP4",
@@ -1003,7 +1070,6 @@ const PRODUK3 = {
   }
 };
 
-/* Produk 4 */
 const PRODUK4 = {
   barang : "APK BUG LENNOX SPY",
   video  : "https://files.catbox.moe/4mxu4u.MP4",
@@ -1021,7 +1087,6 @@ const PRODUK4 = {
   }
 };
 
-/* Produk 5 */
 const PRODUK5 = {
   barang : "APK BUG X-FAR",
   video  : "https://files.catbox.moe/sn5zin.mp4",
@@ -1102,7 +1167,6 @@ const PRODUK5 = {
 const TG_BASE = "https://t.me/orderchatsaja?text=";
 const WA_BASE = "https://wa.me/6287766393346?text=";
 
-/* ================= TEMA ================= */
 const THEMES = [
   { id:"dark",    name:"Dark",      c1:"#7c5cff", c2:"#00d4ff" },
   { id:"light",   name:"Light",     c1:"#2563eb", c2:"#06b6d4" },
@@ -1173,7 +1237,6 @@ document.addEventListener("click", e => {
   setTheme(t);
 })();
 
-/* ================= ICON SVG ================= */
 const IC_TG = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>`;
 
 const IC_WA = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15a8.23 8.23 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>`;
@@ -1182,7 +1245,6 @@ const IC_NOTE = `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" str
 
 const IC_RECEIPT = `<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h16v20l-3-2-2 2-3-2-3 2-2-2-3 2V2z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/></svg>`;
 
-/* ================= INTRO LOADER ================= */
 document.body.style.overflow = "hidden";
 window.addEventListener("load", () => {
   setTimeout(() => {
@@ -1192,10 +1254,8 @@ window.addEventListener("load", () => {
   }, 2100);
 });
 
-/* ================= TAHUN ================= */
 document.getElementById("year").textContent = new Date().getFullYear();
 
-/* ================= TANGGAL ================= */
 function tanggalHariIni(){
   const d = new Date();
   const hari = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"][d.getDay()];
@@ -1204,7 +1264,6 @@ function tanggalHariIni(){
   return `${hari}, ${d.getDate()} ${bln} ${d.getFullYear()}`;
 }
 
-/* ================= MODAL UTIL ================= */
 function show(id){
   document.getElementById(id).classList.add("show");
   document.body.style.overflow = "hidden";
@@ -1214,7 +1273,18 @@ function hide(id){
   if(!document.querySelector(".overlay.show")) document.body.style.overflow = "";
 }
 
-/* ================= VIDEO ================= */
+function openTutorial(){
+  const v = document.getElementById("tutVid");
+  v.src = TUTORIAL_URL;
+  show("ovTutorial");
+  v.play().catch(()=>{});
+}
+function closeTutorial(){
+  const v = document.getElementById("tutVid");
+  v.pause(); v.removeAttribute("src"); v.load();
+  hide("ovTutorial");
+}
+
 function openVideo(){
   const v = document.getElementById("vid");
   document.getElementById("vidTitle").textContent = "Preview — APK BUGXRAT SYAM";
@@ -1240,7 +1310,6 @@ function openVideo3(){ openVideoGeneric(PRODUK3.video, "APK BUG DARKVERSE"); }
 function openVideo4(){ openVideoGeneric(PRODUK4.video, "APK BUG LENNOX SPY"); }
 function openVideo5(){ openVideoGeneric(PRODUK5.video, "APK BUG X-FAR"); }
 
-/* ================= PRICE LIST ================= */
 function openPrice(){
   document.getElementById("priceBody").innerHTML = `
     <p class="pl-cat">Member</p>
@@ -1354,7 +1423,6 @@ function openPrice5(){
   show("ovPrice");
 }
 
-/* ================= QRIS ================= */
 function buildQRISHTML(p){
   const tg = TG_BASE + encodeURIComponent(p.chat);
   const wa = WA_BASE + encodeURIComponent(p.chat);
@@ -1416,7 +1484,6 @@ function openQRIS5(key){
 
 function closeQRIS(){ hide("ovQris"); }
 
-/* ================= CAROUSEL ================= */
 const scroller = document.getElementById("scroller");
 const cards    = scroller.querySelectorAll(".card");
 const dotsWrap = document.getElementById("dots");
@@ -1462,7 +1529,6 @@ document.getElementById("nextBtn").addEventListener("click", () => {
   scroller.scrollBy({ left: 316, behavior: "smooth" });
 });
 
-/* drag support mouse */
 let isDown = false, startX = 0, startScroll = 0, moved = false;
 scroller.addEventListener("mousedown", e => {
   isDown = true; moved = false;
@@ -1483,20 +1549,19 @@ scroller.addEventListener("click", e => {
   if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
 }, true);
 
-/* keyboard nav */
 document.addEventListener("keydown", e => {
   if(document.querySelector(".overlay.show")) return;
   if(e.key === "ArrowLeft")  scroller.scrollBy({ left:-316, behavior:"smooth" });
   if(e.key === "ArrowRight") scroller.scrollBy({ left: 316, behavior:"smooth" });
 });
 
-/* ================= GLOBAL MODAL EVENTS ================= */
 document.querySelectorAll(".overlay").forEach(ov => {
   ov.addEventListener("click", e => {
     if(e.target !== ov) return;
     if(ov.id === "ovVideo") closeVideo();
     else if(ov.id === "ovPrice") closePrice();
     else if(ov.id === "ovQris") closeQRIS();
+    else if(ov.id === "ovTutorial") closeTutorial();
   });
 });
 document.addEventListener("keydown", e => {
@@ -1504,10 +1569,10 @@ document.addEventListener("keydown", e => {
   if(document.getElementById("ovVideo").classList.contains("show")) closeVideo();
   else if(document.getElementById("ovQris").classList.contains("show")) closeQRIS();
   else if(document.getElementById("ovPrice").classList.contains("show")) closePrice();
+  else if(document.getElementById("ovTutorial").classList.contains("show")) closeTutorial();
   else closeThemePop();
 });
 
-/* update indikator dot saat resize */
 window.addEventListener("resize", updateActive);
 </script>
 </body>
